@@ -33,6 +33,8 @@ class _HomePageState extends State<HomePage> {
     var decodedJson = jsonDecode(response.body);
 
     pokeHub = PokeHub.fromJson(decodedJson);
+
+    setState(() {});
   }
 
   @override
@@ -42,35 +44,43 @@ class _HomePageState extends State<HomePage> {
           title: Text("Poke App"),
           backgroundColor: Colors.cyan,
         ),
-        body: GridView.count(
-          crossAxisCount: 2,
-          children: pokeHub.pokemon
-              .map((poke) => Padding(
-                    padding: const EdgeInsets.all(2.0),
-                    child: Card(
-                      elevation: 3.0, // sombra do card
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          Container(
-                            height: 100,
-                            width: 100,
-                            decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image: NetworkImage(poke.img))),
-                          ),
-                          Text(
-                            poke.name,
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
+        body: pokeHub == null
+            ? Center(
+                child: CircularProgressIndicator(),
+              )
+            : GridView.count(
+                crossAxisCount: 2,
+                children: pokeHub.pokemon
+                    .map((poke) => Padding(
+                          padding: const EdgeInsets.all(2.0),
+                          child: InkWell(
+                            onTap: () {},
+                            child: Card(
+                              elevation: 3.0, // sombra do card
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: <Widget>[
+                                  Container(
+                                    height: 100,
+                                    width: 100,
+                                    decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            image: NetworkImage(poke.img))),
+                                  ),
+                                  Text(
+                                    poke.name,
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ))
-              .toList(),
-        ));
+                          ),
+                        ))
+                    .toList(),
+              ));
   }
 }
