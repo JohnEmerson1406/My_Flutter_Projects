@@ -68,18 +68,18 @@ class PokeDetail extends StatelessWidget {
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: pokemon.nextEvolution
-                        .map((n) => FilterChip(
-                              backgroundColor: Colors.green,
-                              label: Text(
-                                n.name,
-                                style: TextStyle(color: Colors.white),
-                              ),
-                              onSelected: (b) {},
-                            ))
-                        .toList(),
-                  ),
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      // add ? before map and before .toList(), add ?? [Text('No more evolutions')] after toList()
+                      children: pokemon.nextEvolution
+                              ?.map((n) => FilterChip(
+                                  backgroundColor: Colors.green,
+                                  label: Text(
+                                    n.name,
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                  onSelected: (b) {}))
+                              ?.toList() ??
+                          [Text('No more evolutions')]),
                 ],
               ),
             ),
