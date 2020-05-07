@@ -63,27 +63,31 @@ class _HomePageState extends State<HomePage> {
                                             pokemon: poke,
                                           )));
                             },
-                            child: Card(
-                              elevation: 3.0, // sombra do card
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: <Widget>[
-                                  Container(
-                                    height: 100,
-                                    width: 100,
-                                    decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                            image: NetworkImage(poke.img))),
-                                  ),
-                                  Text(
-                                    poke.name,
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
+                            child: Hero(
+                              // serve pra adicionar animações
+                              tag: poke.img,
+                              child: Card(
+                                elevation: 3.0, // sombra do card
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: <Widget>[
+                                    Container(
+                                      height: 100,
+                                      width: 100,
+                                      decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                              image: NetworkImage(poke.img))),
                                     ),
-                                  )
-                                ],
+                                    Text(
+                                      poke.name,
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
                           ),
