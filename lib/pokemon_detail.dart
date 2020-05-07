@@ -6,11 +6,16 @@ class PokeDetail extends StatelessWidget {
 
   PokeDetail({this.pokemon});
 
-  bodyWidget() => Stack(
+  bodyWidget(BuildContext context) => Stack(
         children: <Widget>[
-          Container(
+          Positioned(
+            height: MediaQuery.of(context).size.height / 1.5,
+            width: MediaQuery.of(context).size.width - 20,
+            left: 10,
+            top:  MediaQuery.of(context).size.height * 0.1,
             child: Card(
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Text(pokemon.name),
                   Text("Height: ${pokemon.height}"),
@@ -20,6 +25,7 @@ class PokeDetail extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: pokemon.type
                         .map((t) => FilterChip(
+                              backgroundColor: Colors.amber,
                               label: Text(t),
                               onSelected: (b) {},
                             ))
@@ -30,7 +36,11 @@ class PokeDetail extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: pokemon.weaknesses
                         .map((t) => FilterChip(
-                              label: Text(t),
+                              backgroundColor: Colors.red,
+                              label: Text(
+                                t,
+                                style: TextStyle(color: Colors.white),
+                              ),
                               onSelected: (b) {},
                             ))
                         .toList(),
@@ -40,7 +50,11 @@ class PokeDetail extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: pokemon.nextEvolution
                         .map((n) => FilterChip(
-                              label: Text(n.name),
+                              backgroundColor: Colors.green,
+                              label: Text(
+                                n.name,
+                                style: TextStyle(color: Colors.white),
+                              ),
                               onSelected: (b) {},
                             ))
                         .toList(),
@@ -61,7 +75,7 @@ class PokeDetail extends StatelessWidget {
         backgroundColor: Colors.cyan,
       ),
       backgroundColor: Colors.cyan,
-      body: bodyWidget(),
+      body: bodyWidget(context),
     );
   }
 }
