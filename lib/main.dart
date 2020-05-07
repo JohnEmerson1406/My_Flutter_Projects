@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sky_engine/_http/http.dart' as http;
+import 'package:http/http.dart' as http;
 
 void main() => runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -13,17 +13,19 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  var url =
+      "https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json";
 
-  var url = "https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json";
-
-   @override
+  @override
   void initState() {
     super.initState();
 
     fetchData();
   }
 
-  fetchData() async {}
+  fetchData() async {
+    var response = http.get(url);
+  }
 
   @override
   Widget build(BuildContext context) {
