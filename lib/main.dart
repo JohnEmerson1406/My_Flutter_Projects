@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 import 'package:pokemon_app/pokemon.dart';
+import 'package:pokemon_app/pokemon_detail.dart';
 
 void main() => runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -54,7 +55,14 @@ class _HomePageState extends State<HomePage> {
                     .map((poke) => Padding(
                           padding: const EdgeInsets.all(2.0),
                           child: InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => PokeDetail(
+                                            pokemon: poke,
+                                          )));
+                            },
                             child: Card(
                               elevation: 3.0, // sombra do card
                               child: Column(
