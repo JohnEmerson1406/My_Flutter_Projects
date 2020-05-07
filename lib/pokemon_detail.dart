@@ -32,7 +32,10 @@ class PokeDetail extends StatelessWidget {
                   ),
                   Text("Height: ${pokemon.height}"),
                   Text("Weight: ${pokemon.weight}"),
-                  Text("Types"),
+                  Text(
+                    "Types",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: pokemon.type
@@ -43,7 +46,10 @@ class PokeDetail extends StatelessWidget {
                             ))
                         .toList(),
                   ),
-                  Text("Weakness"),
+                  Text(
+                    "Weakness",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: pokemon.weaknesses
@@ -57,7 +63,10 @@ class PokeDetail extends StatelessWidget {
                             ))
                         .toList(),
                   ),
-                  Text("Next Evolution"),
+                  Text(
+                    "Next Evolution",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: pokemon.nextEvolution
