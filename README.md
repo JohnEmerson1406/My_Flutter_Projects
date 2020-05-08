@@ -1,16 +1,35 @@
 # pokemon_app
 
-A new Flutter project.
+A simple pokemon app consuming json-api.
 
-## Getting Started
+<h1 align="center">:iphone: Pokemon App</h1>
+<p align="center">A simple pokemon app consuming json-api.</p>
 
-This project is a starting point for a Flutter application.
+<p align="center">
+  <a aria-label="Versão do Flutter">
+    <img src="https://img.shields.io/badge/flutter-1.12.13-informational?logo=flutter" />
+  </a>
+</p>
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## :rocket: Overview
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/43749971/81125935-1c950b80-8f10-11ea-8d16-2c3095fb48d7.jpeg" width="300" />
+  <img src="https://user-images.githubusercontent.com/43749971/81125932-1b63de80-8f10-11ea-8c9f-2571324f65c0.jpeg" width="300" />
+</p>
+
+
+## :earth_americas: Credits
+- [MTECHVIRAL](https://www.youtube.com/watch?v=yeXJqZCiwTQ)
+
+
+### Extras
+- [Shields.io](https://shields.io/)
+- [Github Emojis](https://gist.github.com/rxaviers/7360908)
+
+---
+
+Made with ♥ by John Emerson :wave: [Get in touch](https://johnemerson1406.github.io/linktree)
+
