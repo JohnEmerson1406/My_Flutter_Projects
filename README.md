@@ -1,7 +1,3 @@
-# pokemon_app
-
-A simple pokemon app consuming json-api.
-
 <h1 align="center">:iphone: Pokemon App</h1>
 <p align="center">A simple pokemon app consuming json-api.</p>
 
@@ -16,8 +12,8 @@ A simple pokemon app consuming json-api.
 ## :rocket: Overview
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/43749971/81125935-1c950b80-8f10-11ea-8d16-2c3095fb48d7.jpeg" width="300" />
-  <img src="https://user-images.githubusercontent.com/43749971/81125932-1b63de80-8f10-11ea-8c9f-2571324f65c0.jpeg" width="300" />
+  <img src="https://user-images.githubusercontent.com/43749971/81449155-05dff600-9156-11ea-8ae4-8322b18fea9d.jpeg" width="300" />
+  <img src="https://user-images.githubusercontent.com/43749971/81449160-06788c80-9156-11ea-8cf1-e9beb08d6f4a.jpeg" width="300" />
 </p>
 
 
