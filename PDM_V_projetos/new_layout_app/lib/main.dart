@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
                   buildContainer(Colors.green),
                 ],
               ),
-              buildContainer(Colors.blue),
+              buildContainer(Colors.lightBlue),
             ],
           ),
         ),
