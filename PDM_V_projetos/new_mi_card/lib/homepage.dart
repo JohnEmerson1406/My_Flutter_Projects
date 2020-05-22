@@ -67,17 +67,13 @@ class _HomePageState extends State<HomePage> {
                   padding: const EdgeInsets.all(16.0),
                   child: CircleAvatar(
                     radius: 50,
-                    // backgroundColor: Colors.red,
                     backgroundImage: AssetImage('images/image2.jpg'),
                   ),
                 ),
                 Column(
                   children: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.only(
-                        top: 40,
-                        bottom: 6
-                      ),
+                      padding: const EdgeInsets.only(top: 40, bottom: 6),
                       child: Text('John Emerson',
                           style: TextStyle(
                             color: Colors.white,
@@ -97,7 +93,7 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             decoration: BoxDecoration(
-              color: Colors.blue.withOpacity(0.9),
+              color: Colors.blue,
               borderRadius: BorderRadius.circular(24.0),
             ),
           ),
@@ -112,47 +108,35 @@ class _HomePageState extends State<HomePage> {
   Widget _socialContainer() {
     return Container(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           Container(
             height: 130.0,
-            width: MediaQuery.of(context).size.width,
-            child: Column(
+            child: Row(
               children: <Widget>[
-                ListTile(
-                  leading: Container(
-                      width: 120.0,
-                      height: 120.0,
-                      decoration: new BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: new DecorationImage(
-                            fit: BoxFit.fill,
-                            image: new AssetImage("images/image2.jpg"),
-                          ))),
-                  title: Padding(
-                    padding: const EdgeInsets.only(top: 32.0),
-                    child: Text('Social Links',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.bold,
-                        )),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: CircleAvatar(
+                    radius: 50,
+                    backgroundImage: AssetImage('images/image2.jpg'),
                   ),
-                  subtitle: Padding(
-                    padding: const EdgeInsets.only(top: 8.0),
-                    child: Text(
-                      '',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18.0,
-                      ),
+                ),
+                Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(top: 50),
+                      child: Text('Social Links',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 24.0,
+                            fontWeight: FontWeight.bold,
+                          )),
                     ),
-                  ),
+                  ],
                 ),
               ],
             ),
             decoration: BoxDecoration(
-              color: Colors.pink.withOpacity(0.9),
+              color: Colors.pink,
               borderRadius: BorderRadius.circular(24.0),
             ),
           ),
@@ -233,18 +217,15 @@ class _HomePageState extends State<HomePage> {
   Widget _socialdetailsContainer() {
     return Column(
       children: <Widget>[
-        SizedBox(
-          width: 10.0,
-        ),
         Padding(
-          padding: const EdgeInsets.only(top: 16.0, left: 8.0, right: 8.0),
+          padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
           child: Container(
               child: Row(
             children: <Widget>[
               Container(
                   child: Icon(
                 FontAwesomeIcons.twitter,
-                color: Color(0xffff0d41),
+                color: Colors.pink,
                 size: 30.0,
               )),
               Padding(
@@ -253,7 +234,7 @@ class _HomePageState extends State<HomePage> {
                   child: Text(
                     '/johnemerson1406',
                     style: TextStyle(
-                      color: Color(0xffff0d41),
+                      color: Colors.pink,
                       fontSize: 24.0,
                     ),
                   ),
@@ -263,14 +244,14 @@ class _HomePageState extends State<HomePage> {
           )),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 16.0, left: 8.0, right: 8.0),
+          padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
           child: Container(
               child: Row(
             children: <Widget>[
               Container(
                   child: Icon(
                 FontAwesomeIcons.github,
-                color: Color(0xffff0d41),
+                color: Colors.pink,
                 size: 30.0,
               )),
               Padding(
@@ -279,7 +260,7 @@ class _HomePageState extends State<HomePage> {
                   child: Text(
                     '/johnemerson1406',
                     style: TextStyle(
-                      color: Color(0xffff0d41),
+                      color: Colors.pink,
                       fontSize: 24.0,
                     ),
                   ),
@@ -289,14 +270,14 @@ class _HomePageState extends State<HomePage> {
           )),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 16.0, left: 8.0, right: 8.0),
+          padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
           child: Container(
               child: Row(
             children: <Widget>[
               Container(
                   child: Icon(
                 FontAwesomeIcons.linkedin,
-                color: Color(0xffff0d41),
+                color: Colors.pink,
                 size: 30.0,
               )),
               Padding(
@@ -305,7 +286,7 @@ class _HomePageState extends State<HomePage> {
                   child: Text(
                     '/johnemerson1406',
                     style: TextStyle(
-                      color: Color(0xffff0d41),
+                      color: Colors.pink,
                       fontSize: 24.0,
                     ),
                   ),
@@ -315,14 +296,14 @@ class _HomePageState extends State<HomePage> {
           )),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 16.0, left: 8.0, right: 8.0),
+          padding: const EdgeInsets.only(top: 16, left: 16, right: 16, bottom: 24),
           child: Container(
               child: Row(
             children: <Widget>[
               Container(
                   child: Icon(
                 FontAwesomeIcons.facebook,
-                color: Color(0xffff0d41),
+                color: Colors.pink,
                 size: 30.0,
               )),
               Padding(
@@ -331,7 +312,7 @@ class _HomePageState extends State<HomePage> {
                   child: Text(
                     '/johnemerson1406',
                     style: TextStyle(
-                      color: Color(0xffff0d41),
+                      color: Colors.pink,
                       fontSize: 24.0,
                     ),
                   ),
