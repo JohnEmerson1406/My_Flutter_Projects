@@ -30,19 +30,16 @@ class _HomePageState extends State<HomePage> {
                     child: Center(
                       child: Container(
                         width: MediaQuery.of(context).size.width,
-                        height: 400.0,
                         child: FlipCard(
                           direction: FlipDirection.HORIZONTAL, // default
                           front: Material(
-                            color: Colors.white.withOpacity(0.9),
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(24.0),
-                            shadowColor: Color(0x802196F3).withOpacity(0.2),
                             child: _nameDetailsContainer(),
                           ),
                           back: Material(
-                            color: Colors.white.withOpacity(0.7),
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(24.0),
-                            shadowColor: Color(0x802196F3),
                             child: _socialContainer(),
                           ),
                         ),
@@ -61,50 +58,46 @@ class _HomePageState extends State<HomePage> {
   Widget _nameDetailsContainer() {
     return Container(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           Container(
             height: 130.0,
-            width: MediaQuery.of(context).size.width,
-            child: Column(
+            child: Row(
               children: <Widget>[
                 Padding(
-                  padding: const EdgeInsets.only(top: 16.0),
-                  child: ListTile(
-                    leading: Container(
-                        width: 120.0,
-                        height: 120.0,
-                        decoration: new BoxDecoration(
-                            shape: BoxShape.circle,
-                            image: new DecorationImage(
-                              fit: BoxFit.fill,
-                              image: new AssetImage("images/image2.jpg"),
-                            ))),
-                    title: Padding(
-                      padding: const EdgeInsets.only(top: 32.0),
+                  padding: const EdgeInsets.all(16.0),
+                  child: CircleAvatar(
+                    radius: 50,
+                    // backgroundColor: Colors.red,
+                    backgroundImage: AssetImage('images/image2.jpg'),
+                  ),
+                ),
+                Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 40,
+                        bottom: 6
+                      ),
                       child: Text('John Emerson',
                           style: TextStyle(
-                            color: Color(0xffffffff),
+                            color: Colors.white,
                             fontSize: 24.0,
                             fontWeight: FontWeight.bold,
                           )),
                     ),
-                    subtitle: Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
-                      child: Text(
-                        'Flutter Developer',
-                        style: TextStyle(
-                          color: Color(0xffffffff),
-                          fontSize: 20.0,
-                        ),
+                    Text(
+                      'Flutter Developer',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.0,
                       ),
                     ),
-                  ),
+                  ],
                 ),
               ],
             ),
             decoration: BoxDecoration(
-              color: Color(0xffff520d).withOpacity(0.9),
+              color: Colors.blue.withOpacity(0.9),
               borderRadius: BorderRadius.circular(24.0),
             ),
           ),
@@ -126,35 +119,32 @@ class _HomePageState extends State<HomePage> {
             width: MediaQuery.of(context).size.width,
             child: Column(
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(top: 16.0),
-                  child: ListTile(
-                    leading: Container(
-                        width: 120.0,
-                        height: 120.0,
-                        decoration: new BoxDecoration(
-                            shape: BoxShape.circle,
-                            image: new DecorationImage(
-                              fit: BoxFit.fill,
-                              image: new AssetImage("images/image2.jpg"),
-                            ))),
-                    title: Padding(
-                      padding: const EdgeInsets.only(top: 32.0),
-                      child: Text('Social Links',
-                          style: TextStyle(
-                            color: Color(0xffffffff),
-                            fontSize: 24.0,
-                            fontWeight: FontWeight.bold,
-                          )),
-                    ),
-                    subtitle: Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
-                      child: Text(
-                        'dale dele dele dolly kkk',
+                ListTile(
+                  leading: Container(
+                      width: 120.0,
+                      height: 120.0,
+                      decoration: new BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: new DecorationImage(
+                            fit: BoxFit.fill,
+                            image: new AssetImage("images/image2.jpg"),
+                          ))),
+                  title: Padding(
+                    padding: const EdgeInsets.only(top: 32.0),
+                    child: Text('Social Links',
                         style: TextStyle(
-                          color: Color(0xffffffff),
-                          fontSize: 20.0,
-                        ),
+                          color: Colors.white,
+                          fontSize: 24.0,
+                          fontWeight: FontWeight.bold,
+                        )),
+                  ),
+                  subtitle: Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: Text(
+                      '',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.0,
                       ),
                     ),
                   ),
@@ -162,7 +152,7 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             decoration: BoxDecoration(
-              color: Color(0xffff0d41).withOpacity(0.9),
+              color: Colors.pink.withOpacity(0.9),
               borderRadius: BorderRadius.circular(24.0),
             ),
           ),
@@ -178,32 +168,33 @@ class _HomePageState extends State<HomePage> {
     return Column(
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.only(top: 16.0, left: 8.0, right: 8.0),
+          padding: const EdgeInsets.all(16),
           child: Text(
-            'A forward-thinking developer offering more than four years of experience building, integrating, testing, and supporting Android applications for mobile and tablet devices on the Android platform seeks position with a top technology firm.',
+            'Student of Systems Analysis and Development at IFPI - Federal Institute of Piauí.',
             style: TextStyle(
-              color: Color(0xff000000),
+              color: Colors.black,
               fontSize: 20.0,
             ),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 16.0, left: 8.0, right: 8.0),
+          padding:
+              const EdgeInsets.only(top: 8, left: 16, right: 16, bottom: 8),
           child: Container(
               child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Container(
                   child: Icon(FontAwesomeIcons.mapMarkerAlt,
-                      color: Color(0xffff520d))),
+                      color: Colors.blueAccent)),
               Padding(
-                padding: const EdgeInsets.only(left: 8.0),
+                padding: const EdgeInsets.only(left: 12.0),
                 child: Container(
                   child: Text(
-                    'NewYork',
+                    'Teresina - PI, Brazil',
                     style: TextStyle(
-                      color: Color(0xffff520d),
-                      fontSize: 20.0,
+                      color: Colors.blueAccent,
+                      fontSize: 18.0,
                     ),
                   ),
                 ),
@@ -212,22 +203,22 @@ class _HomePageState extends State<HomePage> {
           )),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 16.0, left: 8.0, right: 8.0),
+          padding: const EdgeInsets.only(left: 16, right: 16, bottom: 24),
           child: Container(
               child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Container(
                   child: Icon(FontAwesomeIcons.envelope,
-                      color: Color(0xffff520d))),
+                      color: Colors.blueAccent)),
               Padding(
-                padding: const EdgeInsets.only(left: 8.0),
+                padding: const EdgeInsets.only(left: 12.0),
                 child: Container(
                   child: Text(
                     'john.carv.sousa@gmail.com',
                     style: TextStyle(
-                      color: Color(0xffff520d),
-                      fontSize: 20.0,
+                      color: Colors.blueAccent,
+                      fontSize: 18.0,
                     ),
                   ),
                 ),
