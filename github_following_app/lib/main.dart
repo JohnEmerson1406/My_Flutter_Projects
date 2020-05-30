@@ -30,7 +30,17 @@ class _HomePageState extends State<HomePage> {
                   backgroundColor: Colors.transparent,
                   backgroundImage: AssetImage('images/github-icon-png-29.jpg'),
                 ),
-              )
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Text(
+                'Github',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold),
+              ),
             ],
           ),
         ),
