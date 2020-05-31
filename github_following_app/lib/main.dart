@@ -11,6 +11,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  TextEditingController _controller = TextEditingController();
+
+  void _getUser() {
+    if (_controller.text == '') {
+    } else {}
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,6 +58,7 @@ class _HomePageState extends State<HomePage> {
                   color: Colors.white.withOpacity(.1),
                 ),
                 child: TextField(
+                  controller: _controller,
                   style: TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                     border: InputBorder.none,
@@ -74,7 +82,9 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  _getUser();
+                },
               ),
             ],
           ),
