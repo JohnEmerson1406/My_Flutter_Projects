@@ -41,6 +41,27 @@ class _HomePageState extends State<HomePage> {
                     fontSize: 40,
                     fontWeight: FontWeight.bold),
               ),
+              SizedBox(
+                height: 150,
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.white.withOpacity(.1),
+                ),
+                child: TextField(
+                  style: TextStyle(color: Colors.white),
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hintText: 'Github username',
+                    hintStyle: TextStyle(color: Colors.grey),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
             ],
           ),
         ),
