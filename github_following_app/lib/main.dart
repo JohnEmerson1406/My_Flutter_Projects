@@ -62,6 +62,20 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: 20,
               ),
+              MaterialButton(
+                padding: EdgeInsets.all(20),
+                color: Colors.blue,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Align(
+                  child: Text(
+                    'Get Your Following Now',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                onPressed: () {},
+              ),
             ],
           ),
         ),
