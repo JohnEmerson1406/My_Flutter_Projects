@@ -24,7 +24,7 @@ class _StateHomePage extends State<HomePage> {
       Provider.of<UserProvider>(context, listen: false)
           .setMessage('Please Enter your username');
     } else {
-      Provider.of<UserProvider>(context)
+      Provider.of<UserProvider>(context, listen: false)
           .fetchUser(_controller.text)
           .then((value) {
         if (value) {
