@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:github_following_app/Models/User.dart';
 
 class FollowingPage extends StatefulWidget {
   @override
@@ -6,6 +7,9 @@ class FollowingPage extends StatefulWidget {
 }
 
 class _FollowingPageState extends State<FollowingPage> {
+  User user;
+  List<User> users;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
