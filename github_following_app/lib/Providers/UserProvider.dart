@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:github_following_app/Models/User.dart';
 import 'package:github_following_app/Requests/GithubRequest.dart';
 
@@ -13,6 +13,8 @@ class UserProvider with ChangeNotifier {
     setLoading(true);
 
     await Github(username).fetchUser().then((data) {
+      setLoading(false);
+
       if (data.statusCode == 200) {
         setUser(User.fromJson(json.decode(data.body)));
       } else {
@@ -38,7 +40,7 @@ class UserProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  User getUser() {
+  User getUSer() {
     return user;
   }
 

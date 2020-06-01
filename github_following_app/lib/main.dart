@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:github_following_app/Providers/UserProvider.dart';
+import 'package:provider/provider.dart';
 
-void main() => runApp(MaterialApp(
-      home: HomePage(),
-      debugShowCheckedModeBanner: false,
+void main() => runApp(ChangeNotifierProvider<UserProvider>(
+      create: (context) => UserProvider(),
+      child: MaterialApp(
+        home: HomePage(),
+        debugShowCheckedModeBanner: false,
+      ),
     ));
 
 class HomePage extends StatefulWidget {
@@ -15,6 +20,8 @@ class _HomePageState extends State<HomePage> {
 
   void _getUser() {
     if (_controller.text == '') {
+      Provider.of<UserProvider>(context)
+          .setMessage('Please inter your username');
     } else {}
   }
 
