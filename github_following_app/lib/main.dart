@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:github_following_app/Pages/Following.dart';
 import 'package:github_following_app/Providers/UserProvider.dart';
 import 'package:provider/provider.dart';
 
@@ -22,7 +23,16 @@ class _HomePageState extends State<HomePage> {
     if (_controller.text == '') {
       Provider.of<UserProvider>(context)
           .setMessage('Please inter your username');
-    } else {}
+    } else {
+      Provider.of<UserProvider>(context)
+          .fetchUser(_controller.text)
+          .then((value) {
+        if (value) {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => FollowingPage()));
+        }
+      });
+    }
   }
 
   @override
