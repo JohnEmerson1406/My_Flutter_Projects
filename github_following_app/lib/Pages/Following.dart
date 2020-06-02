@@ -24,6 +24,30 @@ class _FollowingPageState extends State<FollowingPage> {
           slivers: <Widget>[
             SliverAppBar(
               brightness: Brightness.light,
+              leading: Icon(
+                Icons.arrow_back_ios,
+                color: Colors.grey,
+              ),
+              backgroundColor: Colors.transparent,
+              expandedHeight: 200,
+              flexibleSpace: FlexibleSpaceBar(
+                background: Container(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      Container(
+                        width: 100,
+                        height: 100,
+                        child: CircleAvatar(
+                          radius: 50,
+                          backgroundColor: Colors.grey,
+                          backgroundImage: NetworkImage(user.avatar_url),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ),
           ],
         ),
