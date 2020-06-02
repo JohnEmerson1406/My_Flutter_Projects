@@ -31,6 +31,7 @@ class _FollowingPageState extends State<FollowingPage> {
               backgroundColor: Colors.transparent,
               expandedHeight: 200,
               flexibleSpace: FlexibleSpaceBar(
+                collapseMode: CollapseMode.pin,
                 background: Container(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -43,6 +44,13 @@ class _FollowingPageState extends State<FollowingPage> {
                           backgroundColor: Colors.grey,
                           backgroundImage: NetworkImage(user.avatar_url),
                         ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Text(
+                        user.login,
+                        style: TextStyle(fontSize: 20),
                       ),
                     ],
                   ),
