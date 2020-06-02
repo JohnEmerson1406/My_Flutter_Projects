@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:github_following_app/Models/User.dart';
+import 'package:github_following_app/Providers/UserProvider.dart';
+import 'package:provider/provider.dart';
 
 class FollowingPage extends StatefulWidget {
   @override
@@ -12,9 +14,19 @@ class _FollowingPageState extends State<FollowingPage> {
 
   @override
   Widget build(BuildContext context) {
+    setState(() {
+      user = Provider.of<UserProvider>(context).getUser();
+    });
     return Scaffold(
       body: Container(
         color: Colors.white,
+        child: CustomScrollView(
+          slivers: <Widget>[
+            SliverAppBar(
+              brightness: Brightness.light,
+            ),
+          ],
+        ),
       ),
     );
   }

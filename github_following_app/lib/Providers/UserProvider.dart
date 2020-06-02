@@ -40,7 +40,7 @@ class UserProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  User getUSer() {
+  User getUser() {
     return user;
   }
 
