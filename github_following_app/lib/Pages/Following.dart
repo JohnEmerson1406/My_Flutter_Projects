@@ -99,7 +99,20 @@ class _FollowingPageState extends State<FollowingPage> {
                                               users[index].avatar_url),
                                         ),
                                       ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Text(
+                                        users[index].login,
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            color: Colors.grey[700]),
+                                      ),
                                     ],
+                                  ),
+                                  Text(
+                                    'Following',
+                                    style: TextStyle(color: Colors.blue),
                                   ),
                                 ],
                               ),
