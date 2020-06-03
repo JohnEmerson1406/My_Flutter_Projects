@@ -34,9 +34,13 @@ class _FollowingPageState extends State<FollowingPage> {
           slivers: <Widget>[
             SliverAppBar(
               brightness: Brightness.light,
-              leading: Icon(
-                Icons.arrow_back_ios,
-                color: Colors.grey,
+              leading: IconButton(
+                icon: Icon(
+                  Icons.arrow_back_ios,
+                  color: Colors.grey,
+                ), onPressed: () {
+                  Navigator.pop(context);
+                },
               ),
               backgroundColor: Colors.transparent,
               expandedHeight: 200,
@@ -70,7 +74,7 @@ class _FollowingPageState extends State<FollowingPage> {
             SliverList(
               delegate: SliverChildListDelegate([
                 Container(
-                  height: 470,
+                  height: MediaQuery.of(context).size.height * 0.67,
                   child: users != null
                       ? ListView.builder(
                           scrollDirection: Axis.vertical,
@@ -105,7 +109,7 @@ class _FollowingPageState extends State<FollowingPage> {
                                       Text(
                                         users[index].login,
                                         style: TextStyle(
-                                            fontSize: 20,
+                                            fontSize: 18,
                                             color: Colors.grey[700]),
                                       ),
                                     ],
