@@ -1,16 +1,26 @@
-# github_following_app
+<h1 align="center">:iphone: Github Following App</h1>
+<h3 align="center">Project developed using Flutter.</h3>
 
-A new Flutter project.
+<p align="center">
+  <a href="https://www.linkedin.com/in/johnemerson1406/">
+    <img alt="Made by" src="https://img.shields.io/badge/Made by-John Emerson-%2303a9f4">
+  </a>
+  
+  <img alt="Flutter version" src="https://img.shields.io/badge/flutter-1.17.1-informational?logo=flutter&color=%2303a9f4">
+</p>
 
-## Getting Started
+<p align="center">
+  <img alt="Layout1" src="https://user-images.githubusercontent.com/43749971/84083287-b8a2ae80-a9b7-11ea-9da8-8d41358a15c9.jpeg" width="200">
+  <img alt="Layout2" src="https://user-images.githubusercontent.com/43749971/84083290-b93b4500-a9b7-11ea-8868-b6a794ed0f18.jpeg" width="200">
+</p>
 
-This project is a starting point for a Flutter application.
+## :bulb: Credits
+- [Afgprogrammer](https://www.youtube.com/watch?v=VHYvpTwpW-Q)
 
-A few resources to get you started if this is your first Flutter project:
+## :star2: Extras
+- [Shields.io](https://shields.io/)
+- [Github Emojis](https://gist.github.com/rxaviers/7360908)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+---
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Made with ♥ by John Emerson :wave: [Get in touch](https://johnemerson1406.github.io/linktree)
