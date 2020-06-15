@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:barcode_scan/barcode_scan.dart';
 
 void main() {
   runApp(MyApp());
@@ -62,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
         children: <Widget>[
           MaterialButton(
             child: Text("Scan QR code"),
-            onPressed: () {},
+            onPressed: () => scanQrCode(),
           ),
           Text(
             code,
@@ -74,5 +75,11 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  scanQrCode() async {
+    try {
+      final result = await BarcodeScanner.scan();
+    } catch (e) {}
   }
 }
