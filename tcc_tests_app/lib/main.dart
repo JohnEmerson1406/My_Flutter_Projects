@@ -51,7 +51,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String code;
+  String code = "";
 
   @override
   Widget build(BuildContext context) {
@@ -60,10 +60,14 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          MaterialButton(
-            child: Text("Scan QR code"),
-            onPressed: () => scanQrCode(),
+          Center(
+            child: MaterialButton(
+              child: Text("Scan QR code"),
+              onPressed: () => scanQrCode(),
+            ),
           ),
           Text(
             code,
@@ -80,6 +84,11 @@ class _MyHomePageState extends State<MyHomePage> {
   scanQrCode() async {
     try {
       final result = await BarcodeScanner.scan();
-    } catch (e) {}
+      setState(() {
+        code = result as String;
+      });
+    } catch (e) {
+      print(e);
+    }
   }
 }
