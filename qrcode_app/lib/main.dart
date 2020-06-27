@@ -6,15 +6,10 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'QRCode App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+      debugShowCheckedModeBanner: false,
       home: MyHomePage(title: 'QRCode App'),
     );
   }
@@ -30,14 +25,14 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String _counter, _value = "";
+  String _res, _value = "Desconhecido";
 
-  Future _incrementCounter() async {
-
-    _counter = await FlutterBarcodeScanner.scanBarcode("#004297", "Cancelar", true, ScanMode.QR);
+  Future _scanQR() async {
+    _res = await FlutterBarcodeScanner.scanBarcode(
+        "#f44336", "Cancelar", true, ScanMode.QR);
 
     setState(() {
-      _value = _counter;
+      _value = _res;
     });
   }
 
@@ -56,16 +51,15 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_value',
-              style: Theme.of(context).textTheme.headline4,
+              style: TextStyle(fontSize: 20),
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
+        onPressed: _scanQR,
         child: Icon(Icons.camera_alt),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }
