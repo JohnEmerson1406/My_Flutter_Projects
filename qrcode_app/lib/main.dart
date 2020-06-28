@@ -40,19 +40,18 @@ Future<Item> createItem(String title) async {
     }),
   );
 
-  if (response.statusCode == 200) {
+  if (response.statusCode == 201) {
     return Item.fromJson(json.decode(response.body));
   } else {
-    throw Exception('Failed to create album.');
+    throw Exception('Erro ao criar item.');
   }
 }
 
 class _MyHomePageState extends State<MyHomePage> {
   Future<Item> _futureItem;
-  String response = "Unknown";
 
   Future scanQR() async {
-    response = await FlutterBarcodeScanner.scanBarcode(
+    String response = await FlutterBarcodeScanner.scanBarcode(
         "#f44336", "Cancelar", true, ScanMode.QR);
 
     setState(() {
@@ -84,7 +83,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     return Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Text("amor amor wow wow: ${snapshot.data.title}"),
+                        Text(
+                          "${snapshot.data.title}",
+                          textAlign: TextAlign.center,
+                        ),
                         RaisedButton(
                           child: Text('Ler outro código QR'),
                           onPressed: () => scanQR(),
