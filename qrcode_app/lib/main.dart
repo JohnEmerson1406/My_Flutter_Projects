@@ -1,5 +1,10 @@
+import 'dart:async';
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'package:qrcode_app/models/item.dart';
+import 'package:http/http.dart' as http;
 
 void main() {
   runApp(MyApp());
@@ -24,15 +29,34 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  String _res, _value = "Desconhecido";
+Future<Item> createItem(String title) async {
+  final http.Response response = await http.post(
+    'https://todo-api-github.herokuapp.com',
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+    body: jsonEncode(<String, String>{
+      'title': title,
+    }),
+  );
 
-  Future _scanQR() async {
-    _res = await FlutterBarcodeScanner.scanBarcode(
+  if (response.statusCode == 200) {
+    return Item.fromJson(json.decode(response.body));
+  } else {
+    throw Exception('Failed to create album.');
+  }
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  Future<Item> _futureItem;
+  String response = "Unknown";
+
+  Future scanQR() async {
+    response = await FlutterBarcodeScanner.scanBarcode(
         "#f44336", "Cancelar", true, ScanMode.QR);
 
     setState(() {
-      _value = _res;
+      _futureItem = createItem(response);
     });
   }
 
@@ -43,22 +67,46 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Valor do Scan:',
-            ),
-            Text(
-              '$_value',
-              style: TextStyle(fontSize: 20),
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _scanQR,
-        child: Icon(Icons.camera_alt),
+        child: (_futureItem == null)
+            ? Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  RaisedButton(
+                    child: Text('Ler código QR'),
+                    onPressed: () => scanQR(),
+                  ),
+                ],
+              )
+            : FutureBuilder<Item>(
+                future: _futureItem,
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text("amor amor wow wow: ${snapshot.data.title}"),
+                        RaisedButton(
+                          child: Text('Ler outro código QR'),
+                          onPressed: () => scanQR(),
+                        ),
+                      ],
+                    );
+                  } else if (snapshot.hasError) {
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text("${snapshot.error}"),
+                        RaisedButton(
+                          child: Text('Ler outro código QR'),
+                          onPressed: () => scanQR(),
+                        ),
+                      ],
+                    );
+                  }
+
+                  return CircularProgressIndicator();
+                },
+              ),
       ),
     );
   }
