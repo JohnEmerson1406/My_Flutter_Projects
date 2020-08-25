@@ -45,7 +45,18 @@ class _LikePageState extends State<LikePage> {
       children: <Widget>[
         Expanded(
           flex: 5,
-          child: Container(),
+          child: Padding(
+            padding: const EdgeInsets.all(40.0),
+            child: Center(
+              child: Image(
+                image: buttonLikePressed
+                    ? AssetImage('images/emoji_feliz.png')
+                    : buttonDislikePressed
+                        ? AssetImage('images/emoji_triste.png')
+                        : AssetImage('images/emoji_neutro.png'),
+              ),
+            ),
+          ),
         ),
         Row(
           children: <Widget>[
