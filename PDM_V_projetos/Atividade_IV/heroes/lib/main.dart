@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        Provider<HeroesController>.value(
+        ChangeNotifierProvider<HeroesController>.value(
           value: HeroesController(),
         ),
       ],
@@ -40,7 +40,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  _buidList(HeroesController heroesController) {
+  _buidList() {
+    HeroesController heroesController = Provider.of<HeroesController>(context);
+
     return ListView.builder(
       itemCount: heroesController.heroes.length,
       itemBuilder: (context, index) {
@@ -50,9 +52,19 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   _buildItems(HeroModel model) {
+    HeroesController heroesController = Provider.of<HeroesController>(context);
+
     return ListTile(
-      title: Text(model.name),
-    );
+        onTap: () {
+          heroesController.checkFavorite(model);
+        },
+        title: Text(model.name),
+        trailing: model.isFavorite
+            ? Icon(
+                Icons.star,
+                color: Colors.yellow,
+              )
+            : Icon(Icons.star_border));
   }
 
   @override
@@ -63,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Consumer<HeroesController>(
         builder: (context, heroesController, widget) {
-          return _buidList(heroesController);
+          return _buidList();
         },
       ),
     );
