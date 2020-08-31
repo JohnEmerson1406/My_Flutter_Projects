@@ -72,6 +72,16 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        leading: Consumer<HeroesController>(
+          builder: (context, heroesController, widget) {
+            return Center(
+              child: Text(
+                "${heroesController.heroes.where((i) => i.isFavorite).length}",
+                style: TextStyle(fontSize: 18),
+              ),
+            );
+          },
+        ),
       ),
       body: Consumer<HeroesController>(
         builder: (context, heroesController, widget) {
