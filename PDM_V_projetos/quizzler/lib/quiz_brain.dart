@@ -4,6 +4,7 @@ import 'questions.dart';
 
 class QuizBrain {
   int _questionNumber = 0;
+  int _corrects = 0;
 
   List<Question> _questionBank = [
     Question('Some cats are actually allergic to humans', 1),
@@ -53,5 +54,14 @@ class QuizBrain {
 
   void resetQuiz() {
     _questionNumber = 0;
+    _corrects = 0;
+  }
+
+  void addCorrect() {
+    _corrects++;
+  }
+
+  double getPercent() {
+    return (_corrects/_questionBank.length)*100;
   }
 }

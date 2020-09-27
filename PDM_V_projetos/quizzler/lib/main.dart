@@ -36,26 +36,28 @@ class _QuizPageState extends State<QuizPage> {
     int correctAnswer = quizBrain.getQuestionAnswer();
 
     setState(() {
+      if (userPickedAnswer == correctAnswer) {
+        quizBrain.addCorrect();
+        scoreKeeper.add(Icon(
+          Icons.check,
+          color: Colors.green,
+        ));
+      } else {
+        scoreKeeper.add(Icon(
+          Icons.close,
+          color: Colors.red,
+        ));
+      }
+
       if (quizBrain.isFinished()) {
         Alert(
-                context: context,
-                title: "Finished!",
-                desc: "You're reached the end of the quiz.")
+              context: context,
+              title: "Finished!",
+              desc: "You're reached the end of the quiz.\nYou score: ${quizBrain.getPercent().toStringAsFixed(1)}%")
             .show();
         quizBrain.resetQuiz();
         scoreKeeper.clear();
       } else {
-        if (userPickedAnswer == correctAnswer) {
-          scoreKeeper.add(Icon(
-            Icons.check,
-            color: Colors.green,
-          ));
-        } else {
-          scoreKeeper.add(Icon(
-            Icons.close,
-            color: Colors.red,
-          ));
-        }
         quizBrain.nextQuestion();
       }
     });
@@ -141,6 +143,14 @@ class _QuizPageState extends State<QuizPage> {
         ),
         Row(
           children: scoreKeeper,
+        ),
+        Text(
+          'Corrects: ${quizBrain.getPercent().toStringAsFixed(1)}%',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 18.0,
+            color: Colors.yellow,
+          ),
         ),
       ],
     );
