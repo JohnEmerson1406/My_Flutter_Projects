@@ -53,7 +53,7 @@ class _QuizPageState extends State<QuizPage> {
         Alert(
               context: context,
               title: "Finished!",
-              desc: "You're reached the end of the quiz.\nYou score: ${quizBrain.getPercent().toStringAsFixed(1)}%")
+              desc: "You're reached the end of the quiz.\nYour score: ${quizBrain.getPercent().toStringAsFixed(1)}%")
             .show();
         quizBrain.resetQuiz();
         scoreKeeper.clear();
