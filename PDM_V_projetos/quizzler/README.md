@@ -12,7 +12,9 @@
 ---
 
 <p align="center">
-  <img alt="preview" src="https://github.com/londonappbrewery/Images/blob/master/quizzler-demo.gif" width="200">
+  <img alt="preview" src="https://user-images.githubusercontent.com/43749971/94369448-1cb0c600-00c0-11eb-86b6-0b10fc121460.jpeg" width="200">
+  <img alt="preview" src="https://user-images.githubusercontent.com/43749971/94369466-30f4c300-00c0-11eb-8f9c-4f7e9cf766a4.jpeg" width="200">
+  <img alt="preview" src="https://user-images.githubusercontent.com/43749971/94369477-39e59480-00c0-11eb-97c3-1ef827f289d9.jpeg" width="200">
 </p>
 
 ---
