@@ -11,12 +11,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Cookbook',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Flutter Cookbook'),
     );
   }
 }
@@ -25,14 +26,6 @@ class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
   final String title;
-
-  final todos = List<Todo>.generate(
-    20,
-    (i) => Todo(
-      'Todo $i',
-      'A description of what needs to be done for Todo $i',
-    ),
-  );
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -47,13 +40,28 @@ class _MyHomePageState extends State<MyHomePage> {
   //   });
   // }
 
+  final todos = List<Todo>.generate(
+    20,
+    (i) => Todo(
+      'Todo $i',
+      'A description of what needs to be done for Todo $i',
+    ),
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Container(),
+      body: ListView.builder(
+        itemCount: todos.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            title: Text(todos[index].title),
+          );
+        },
+      )
     );
   }
 }
