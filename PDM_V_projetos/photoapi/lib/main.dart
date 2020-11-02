@@ -92,8 +92,43 @@ class PhotosList extends StatelessWidget {
       ),
       itemCount: photos.length,
       itemBuilder: (context, index) {
-        return Image.network(photos[index].thumbnailUrl);
+        return InkWell(
+          child: Image.network(photos[index].thumbnailUrl),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => DetailScreen(photo: photos[index]),
+              ),
+            );
+          },
+        );
       },
+    );
+  }
+}
+
+class DetailScreen extends StatelessWidget {
+  final Photo photo;
+
+  DetailScreen({Key key, @required this.photo}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Download Image'),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Image.network(photo.thumbnailUrl),
+          ],
+        ),
+      ),
     );
   }
 }
