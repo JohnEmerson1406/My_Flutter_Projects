@@ -5,6 +5,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
+import 'package:image_downloader/image_downloader.dart';
+
 Future<List<Photo>> fetchPhotos(http.Client client) async {
   final response =
       await client.get('https://jsonplaceholder.typicode.com/photos');
@@ -122,10 +124,24 @@ class DownloadScreen extends StatelessWidget {
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Image.network(photo.thumbnailUrl),
+            Image.network(photo.url),
+            Center(
+              child: FlatButton(
+                color: Colors.blue,
+                child: Text(
+                  'Baixar imagem',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.white,
+                  ),
+                ),
+                onPressed: () async {
+                  await ImageDownloader.downloadImage(photo.url);
+                },
+              ),
+            ),
           ],
         ),
       ),
