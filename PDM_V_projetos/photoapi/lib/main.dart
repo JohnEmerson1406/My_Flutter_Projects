@@ -98,7 +98,7 @@ class PhotosList extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => DetailScreen(photo: photos[index]),
+                builder: (context) => DownloadScreen(photo: photos[index]),
               ),
             );
           },
@@ -108,10 +108,10 @@ class PhotosList extends StatelessWidget {
   }
 }
 
-class DetailScreen extends StatelessWidget {
+class DownloadScreen extends StatelessWidget {
   final Photo photo;
 
-  DetailScreen({Key key, @required this.photo}) : super(key: key);
+  DownloadScreen({Key key, @required this.photo}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
