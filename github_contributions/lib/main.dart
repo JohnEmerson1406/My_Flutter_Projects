@@ -46,6 +46,20 @@ Future<List<Contribution>> getContributions(
   }).toList();
 }
 
+Future<int> getContributionsOfDay(
+  String user,
+  String day
+) async {
+  var url = 'https://urlreq.appspot.com/req?method=GET&url=https%3A%2F%2Fgithub.com%2Fusers%2F$user%2Fcontributions%3Fto%3D$day';
+  // var url = 'https://github.com/$user';
+  var res = await http.get(url);
+  var document = parse(res.body);
+  var rectNodes =
+      document.querySelector('.js-calendar-graph-svg').querySelectorAll('rect');
+  int dayContributions = int.tryParse(rectNodes[rectNodes.length - 1].attributes['data-count']);
+  return dayContributions;
+}
+
 /// Get user contributions data as svg string
 Future<String> getContributionsSvg(
   String login, {
@@ -139,12 +153,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() async {
     var login = 'JohnEmerson1406'; // replace this with GitHub account you want
+    // var day = '2020-07-22';
+    var day = '2020-11-28';
 
     // Get the contribution of a certain year
     // If it is the past year, from: yyyy-12-01, to: yyyy-12-31
     // if not, from: The first day of the current month, to: today
-    // var contributions = await getContributions(login, from: '2020-08-01', to: '2020-08-04');
-    // print(contributions[0].color);
+    var contributions = await getContributionsOfDay(login, day);
+    print('contributions count for $day: $contributions');
 
     // get svg string
     // String svg = await getContributionsSvg(login);
