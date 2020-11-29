@@ -61,43 +61,43 @@ Future<int> getContributionsOfDay(
 }
 
 /// Get user contributions data as svg string
-Future<String> getContributionsSvg(
-  String login, {
-  bool keepDateText = false,
-  String from,
-  String to,
-}) async {
-  var url = 'https://github.com/$login';
-  if (from != null && to != null) {
-    url += '?from=$from&to=$to';
-  }
-  var res = await http.get(url);
-  var document = parse(res.body);
-  var svgNode = document.querySelector('.js-calendar-graph-svg');
+// Future<String> getContributionsSvg(
+//   String login, {
+//   bool keepDateText = false,
+//   String from,
+//   String to,
+// }) async {
+//   var url = 'https://github.com/$login';
+//   if (from != null && to != null) {
+//     url += '?from=$from&to=$to';
+//   }
+//   var res = await http.get(url);
+//   var document = parse(res.body);
+//   var svgNode = document.querySelector('.js-calendar-graph-svg');
 
-  if (!keepDateText) {
-    // remove text tags
-    svgNode.children[0].children.forEach((child) {
-      if (child.localName == 'text') {
-        child.remove();
-      }
-    });
+//   if (!keepDateText) {
+//     // remove text tags
+//     svgNode.children[0].children.forEach((child) {
+//       if (child.localName == 'text') {
+//         child.remove();
+//       }
+//     });
 
-    // resize
-    // the size depend on if use check the 'Activity overview' option
-    if (svgNode.attributes['width'] == '563') {
-      svgNode.attributes['width'] = '528';
-      svgNode.attributes['height'] = '68';
-      svgNode.children[0].attributes['transform'] = 'translate(-11, 0)';
-    } else {
-      svgNode.attributes['width'] = '637';
-      svgNode.attributes['height'] = '84';
-      svgNode.children[0].attributes['transform'] = 'translate(-13, 0)';
-    }
-  }
+//     // resize
+//     // the size depend on if use check the 'Activity overview' option
+//     if (svgNode.attributes['width'] == '563') {
+//       svgNode.attributes['width'] = '528';
+//       svgNode.attributes['height'] = '68';
+//       svgNode.children[0].attributes['transform'] = 'translate(-11, 0)';
+//     } else {
+//       svgNode.attributes['width'] = '637';
+//       svgNode.attributes['height'] = '84';
+//       svgNode.children[0].attributes['transform'] = 'translate(-13, 0)';
+//     }
+//   }
 
-  return svgNode?.outerHtml;
-}
+//   return svgNode?.outerHtml;
+// }
 
 void main() {
   runApp(MyApp());
@@ -153,8 +153,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() async {
     var login = 'JohnEmerson1406'; // replace this with GitHub account you want
-    // var day = '2020-07-22';
-    var day = '2020-11-28';
+    var day = '2020-07-22';
+    // var day = '2020-11-28';
 
     // Get the contribution of a certain year
     // If it is the past year, from: yyyy-12-01, to: yyyy-12-31
@@ -167,8 +167,10 @@ class _MyHomePageState extends State<MyHomePage> {
     // print(svg);
 
     // get color and count of this year's contribution
-    // var contributions1 = await getContributions(login);
-    // print(contributions1[0].color);
+    var yearContributions = await getContributions(login);
+    int dayIndex = yearContributions.indexWhere((element) => element.date == '2020-07-22');
+    Contribution contributions1 = yearContributions[dayIndex];
+    print(contributions1.count);
   }
 
   // void _incrementCounter() {
