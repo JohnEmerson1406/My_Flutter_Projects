@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1073258995957",
+    "project_id": "github-login-teste",
+    "storage_bucket": "github-login-teste.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1073258995957:android:0afb953b1439fef4a825bc",
+        "android_client_info": {
+          "package_name": "com.example.firebase_github_authentication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1073258995957-vcnj0sd6icheh137f3e7beohlh4mlplg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAD5yRCI9VbPp9rsun0pXkRVW4RvYQHE_I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1073258995957-vcnj0sd6icheh137f3e7beohlh4mlplg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
