@@ -4,7 +4,7 @@
 
 A new Flutter project about implementing GitHub Authentication with Firebase.
 
-Article coming soon!
+Article: https://medium.com/flutter-community/flutter-firebase-github-authentication-990fe8731d9e
 
 ## Getting Started
 
